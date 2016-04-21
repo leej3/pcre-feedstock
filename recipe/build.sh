@@ -11,7 +11,7 @@ then
     export LINKFLAGS="${LINKFLAGS} -stdlib=libc++ -std=c++11"
 fi
 
-./configure --prefix="${PREFIX}" --enable-unicode
+./configure --prefix="${PREFIX}" --enable-utf
 make
 make check
 make install
