@@ -1,4 +1,4 @@
-{% set version = "8.37" %}
+{% set version = "8.38" %}
 
 package:
   name: pcre
@@ -7,7 +7,7 @@ package:
 source:
   fn: pcre-{{ version }}.tar.gz
   url: ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-{{ version }}.tar.gz
-  md5: 6e0cc6d1bdac7a4308151f9b3571b86e
+  md5: 8a353fe1450216b6655dfcf3561716d9
 
 build:
   skip: true       # [win]
@@ -54,3 +54,4 @@ about:
 extra:
   recipe-maintainers:
     - jakirkham
+    - scopatz
