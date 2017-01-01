@@ -1,4 +1,4 @@
-{% set version = "8.38" %}
+{% set version = "8.39" %}
 
 package:
   name: pcre
@@ -7,22 +7,34 @@ package:
 source:
   fn: pcre-{{ version }}.tar.gz
   url: ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-{{ version }}.tar.gz
-  md5: 8a353fe1450216b6655dfcf3561716d9
+  sha256: ccdf7e788769838f8285b3ee672ed573358202305ee361cfec7a4a4fb005bbc7
 
 build:
-  skip: true       # [win]
-  number: 1
-
+  number: 0
+  features:
+    - vc9          # [win and py27]
+    - vc10         # [win and py34]
+    - vc14         # [win and py>=35]
+    
 requirements:
   build:
     - python       # [win]
+    - cmake        # [win]
     - pkg-config   # [unix]
     - libtool      # [unix]
+    - vc   9       # [win and py27]
+    - vc  10       # [win and py34]
+    - vc  14       # [win and py>=35]
+    
+  run:
+    - vc   9       # [win and py27]
+    - vc  10       # [win and py34]
+    - vc  14       # [win and py>=35]
 
 test:
   commands:
     # CLI tests.
-    - pcre-config --version
+    - pcre-config --version                             # [unix]
     - pcregrep --help
     - pcretest --help
 
@@ -33,6 +45,12 @@ test:
     - test -f "${PREFIX}/include/pcrecpp.h"             # [unix]
     - test -f "${PREFIX}/include/pcrecpparg.h"          # [unix]
     - test -f "${PREFIX}/include/pcreposix.h"           # [unix]
+    - if not exist %LIBRARY_INC%\pcre.h exit 1          # [win]
+    - if not exist %LIBRARY_INC%\pcre_scanner.h exit 1  # [win]
+    - if not exist %LIBRARY_INC%\pcre_stringpiece.h exit 1  # [win]
+    - if not exist %LIBRARY_INC%\pcrecpp.h exit 1       # [win]
+    - if not exist %LIBRARY_INC%\pcrecpparg.h exit 1    # [win]
+    - if not exist %LIBRARY_INC%\pcreposix.h exit 1     # [win]
 
     # Verify libraries.
     - test -f "${PREFIX}/lib/libpcre.a"                 # [unix]
@@ -44,7 +62,12 @@ test:
     - test -f "${PREFIX}/lib/libpcreposix.a"            # [unix]
     - test -f "${PREFIX}/lib/libpcreposix.so"           # [linux]
     - test -f "${PREFIX}/lib/libpcreposix.dylib"        # [osx]
-
+    - if not exist %LIBRARY_LIB%\pcre.lib exit 1        # [win]
+    - if not exist %LIBRARY_BIN%\pcre.dll exit 1        # [win]
+    - if not exist %LIBRARY_LIB%\pcreposix.lib exit 1   # [win]
+    - if not exist %LIBRARY_BIN%\pcreposix.dll exit 1   # [win]
+    - if not exist %LIBRARY_LIB%\pcrecpp.lib exit 1     # [win]
+    - if not exist %LIBRARY_BIN%\pcrecpp.dll exit 1     # [win]
 
 about:
   home: http://www.pcre.org/
