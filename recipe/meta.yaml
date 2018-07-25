@@ -10,26 +10,14 @@ source:
   sha256: 244838e1f1d14f7e2fa7681b857b3a8566b74215f28133f14a8f5e59241b682c
 
 build:
-  number: 1
-  features:
-    - vc9          # [win and py27]
-    - vc10         # [win and py34]
-    - vc14         # [win and py>=35]
-    
+  number: 2
+
 requirements:
   build:
-    - python       # [win]
     - cmake        # [win]
     - pkg-config   # [unix]
     - libtool      # [unix]
-    - vc   9       # [win and py27]
-    - vc  10       # [win and py34]
-    - vc  14       # [win and py>=35]
-    
-  run:
-    - vc   9       # [win and py27]
-    - vc  10       # [win and py34]
-    - vc  14       # [win and py>=35]
+    - {{ compiler('c') }}
 
 test:
   commands:
