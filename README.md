@@ -14,14 +14,16 @@ Summary: Regular expression pattern matching using the same syntax and semantics
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/pcre-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/pcre-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/pcre-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/pcre-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/pcre-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/pcre-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/pcre-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/pcre-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/pcre-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/pcre-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/pcre-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/pcre-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pcre/badges/version.svg)](https://anaconda.org/conda-forge/pcre)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/pcre/badges/downloads.svg)](https://anaconda.org/conda-forge/pcre)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-pcre-green.svg)](https://anaconda.org/conda-forge/pcre) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/pcre.svg)](https://anaconda.org/conda-forge/pcre) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/pcre.svg)](https://anaconda.org/conda-forge/pcre) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/pcre.svg)](https://anaconda.org/conda-forge/pcre) |
 
 Installing pcre
 ===============
