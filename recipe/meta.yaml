@@ -22,6 +22,7 @@ requirements:
     - cmake        # [win]
     - pkg-config   # [not win]
     - libtool      # [not win]
+    - make         # [unix]
 
 test:
   commands:
