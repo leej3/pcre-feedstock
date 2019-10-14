@@ -1,4 +1,4 @@
-{% set version = "8.41" %}
+{% set version = "8.43" %}
 
 package:
   name: pcre
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://ftp.pcre.org/pub/pcre/pcre-{{ version }}.tar.gz
-  sha256: 244838e1f1d14f7e2fa7681b857b3a8566b74215f28133f14a8f5e59241b682c
+  sha256: 0b8e7465dc5e98c757cc3650a20a7843ee4c3edf50aaf60bb33fd879690d2c73
 
 build:
-  number: 1004
+  number: 0
   run_exports:
     # mostly OK, but some scary symbol removal.  Let's try for trusting them.
     #    https://abi-laboratory.pro/tracker/timeline/pcre/
