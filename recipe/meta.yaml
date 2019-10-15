@@ -7,6 +7,8 @@ package:
 source:
   url: https://ftp.pcre.org/pub/pcre/pcre-{{ version }}.tar.gz
   sha256: 0b8e7465dc5e98c757cc3650a20a7843ee4c3edf50aaf60bb33fd879690d2c73
+  patches:
+    - 0001-Define-snprintf-for-old-VS.patch
 
 build:
   number: 0
