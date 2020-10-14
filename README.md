@@ -3,7 +3,7 @@ About pcre
 
 Home: http://www.pcre.org/
 
-Package license: BSD 3-Clause
+Package license: BSD-3-Clause
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/pcre-feedstock/blob/master/LICENSE.txt)
 
