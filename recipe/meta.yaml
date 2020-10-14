@@ -19,6 +19,7 @@ build:
 
 requirements:
   build:
+    - libtool  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake        # [win]
@@ -63,7 +64,7 @@ test:
 
 about:
   home: http://www.pcre.org/
-  license: BSD 3-Clause
+  license: BSD-3-Clause
   license_file: LICENCE
   summary: Regular expression pattern matching using the same syntax and semantics as Perl 5.
 
