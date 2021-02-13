@@ -11,26 +11,38 @@ source:
     - 0001-Define-snprintf-for-old-VS.patch
 
 build:
+{% if bootstrapping == 'yes' %}
+  # Please increment by two
   number: 0
+  string: h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}_bootstrapping
+{% else %}
+  # Keep above the number of the _bootstrapping package
+  number: 1
+{% endif %}
   run_exports:
     # mostly OK, but some scary symbol removal.  Let's try for trusting them.
     #    https://abi-laboratory.pro/tracker/timeline/pcre/
     - {{ pin_subpackage('pcre', max_pin='x') }}
+  detect_binary_files_with_prefix: false
+  script_env:
+    - BOOTSTRAPPING={{ bootstrapping }}
 
 requirements:
   build:
-    - libtool  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+{% if bootstrapping != 'yes' %}
+    - libtool      # [unix]
     - cmake        # [win]
     - pkg-config   # [not win]
     - libtool      # [not win]
     - make         # [unix]
+{% endif %}
 
 test:
   commands:
     # CLI tests.
-    - pcre-config --version                             # [not win]
+    - pcre-config --version    # [not win]
     - pcregrep --help
     - pcretest --help
 
